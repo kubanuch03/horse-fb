@@ -1,0 +1,74 @@
+version: '3.3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash entrypoint.sh
+    volumes:
+      - ./backend:/app
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    # environment:
+    #   - DJANGO_SETTINGS_MODULE=config.settings.base
+    environment:
+      - VIRTUAL_HOST=horse-travel.com
+      - LETSENCRYPT_HOST=horse-travel.com
+      
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend:/app
+  #   depends_on:
+  #     - web
+
+  db:
+    image: postgres:14-alpine
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+
+
+
+
+
+  nginx:
+    image: jwilder/nginx-proxy:1.2
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - ./nginx/default.conf:/etc/nginx/vhost.d/nginx.conf
+    - static_volume:/usr/src/app/static
+    - media_volume:/usr/src/app/media
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - html:/usr/share/nginx/html
+    - vhost:/etc/nginx/vhost.d
+    - certs:/etc/nginx/certs
+
+  acme_companion:
+    image: nginxproxy/acme-companion:2.2.10
+    container_name: acme_companion
+    volumes_from:
+    - nginx
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - acme:/etc/acme.sh
+
+volumes:
+  db_data:
+  static_volume:
+  media_volume:
+  certs:
+  acme:
+  vhost:
+  html:

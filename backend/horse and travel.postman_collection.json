@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "c12d9bd0-ed97-4eef-88e1-a01e793cc7f5",
+		"name": "horse and travel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20741463",
+		"_collection_link": "https://gold-meadow-776325.postman.co/workspace/aitim~75c48375-30e2-41a6-beef-7fc740d6f2c8/collection/20741463-c12d9bd0-ed97-4eef-88e1-a01e793cc7f5?action=share&source=collection_link&creator=20741463"
+	},
+	"item": [
+		{
+			"name": "app_users",
+			"item": [
+				{
+					"name": "list/user/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4Njc5NDQ5LCJpYXQiOjE3MDc0Njk4NDksImp0aSI6IjM5ZjhlMDQ2ZWQzNDRmY2ViM2MwZjdjYzQ0MDU2ODcxIiwidXNlcl9pZCI6MX0.cijiyN4RhvWauWecrWBQcnZldVoWLtGhZ6Ws4YnA-6E"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url_8000}}/users/list/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "login/user/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url_8000}}/users/login/user/"
+					},
+					"response": []
+				},
+				{
+					"name": "register/user/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"zazaka71@gmail.com\",\r\n    \"username\":\"zazaka71\",\r\n    \"password\":\"986532kk\",\r\n    \"password2\":\"986532kk\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url_8000}}/users/register/user/"
+					},
+					"response": []
+				},
+				{
+					"name": "delete/user/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4Njc5NDQ5LCJpYXQiOjE3MDc0Njk4NDksImp0aSI6IjM5ZjhlMDQ2ZWQzNDRmY2ViM2MwZjdjYzQ0MDU2ODcxIiwidXNlcl9pZCI6MX0.cijiyN4RhvWauWecrWBQcnZldVoWLtGhZ6Ws4YnA-6E"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url_8000}}/users/delete/user/1/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "app_gallery",
+			"item": [
+				{
+					"name": "list/gallery/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4Njg1NDc5LCJpYXQiOjE3MDc0NzU4NzksImp0aSI6IjlkYzAwYWU1MGU2YjRjNTQ5YjkxZDU2Mzc2OGNkYjU4IiwidXNlcl9pZCI6MX0.fgkXv2dE-VUe-faipw05cpCs20tailVaEvW9s91MtqY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url_8000}}/gallerys/list/gallerys/"
+					},
+					"response": []
+				},
+				{
+					"name": "detail/gallery/id/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url_8000}}/gallerys/detail/gallery/1/"
+					},
+					"response": []
+				},
+				{
+					"name": "create/gallery/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4Njg1NDc5LCJpYXQiOjE3MDc0NzU4NzksImp0aSI6IjlkYzAwYWU1MGU2YjRjNTQ5YjkxZDU2Mzc2OGNkYjU4IiwidXNlcl9pZCI6MX0.fgkXv2dE-VUe-faipw05cpCs20tailVaEvW9s91MtqY"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/сингапур (13).png"
+								}
+							]
+						},
+						"url": "{{url_8000}}/gallerys/create/gallery/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "app_reviews",
+			"item": []
+		}
+	]
+}
